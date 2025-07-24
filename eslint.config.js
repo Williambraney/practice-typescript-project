@@ -10,26 +10,26 @@ export default defineConfig([
     pluginReact.configs.flat.recommended,
     {
         rules : {
-            //"semi": ["error", "always"],
             'indent' : [ 'warn', 4 ],
             'quotes' : [ 'warn', 'single' ],
+            'jsx-quotes' : [ 'error', 'prefer-single' ],
             'react/jsx-indent-props' : [ 2, 'first' ],
             'react/react-in-jsx-scope' : 'off',
             'object-curly-spacing' : [ 'error', 'always' ],
             'array-bracket-spacing' : [ 'error', 'always' ],
-            'key-spacing' : [ 'error', { 'beforeColon' : true, 'afterColon' : true } ],
+            'key-spacing' : [ 'error', { beforeColon : true, afterColon : true } ],
             'space-infix-ops' : [ 'error' ],
-            "react/jsx-equals-spacing": ["error", "always"],
-            '@typescript-eslint/type-annotation-spacing' : [ 'error', {
-                'before' : false,
-                'after' : true,
-                'overrides' : {
-                    'colon' : {
-                        'before' : false,
-                        'after' : true
-                    }
-                }
-            } ]
+            'react/jsx-curly-spacing' : [ 'error', { when : 'always', children : true } ],
+        // 'type-annotation-spacing': ['error', {
+        //     before: false,
+        //     after: true,
+        //     overrides: {
+        //         colon: {
+        //             before: false,
+        //             after: true
+        //         }
+        //     }
+        // }]
         }
     }
 ]);

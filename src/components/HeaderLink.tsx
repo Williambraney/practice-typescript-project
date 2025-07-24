@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 type HeaderLinkProps = {
     href: string;
@@ -12,9 +12,9 @@ export default function HeaderLink({
 
     return (
         <a 
-            href = {href} 
-            className="header-link"
-            >
+            href = { href } 
+            className='header-link'
+        >
             { children }
         </a>
     );

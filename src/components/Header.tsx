@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 type HeaderProps = {
     children: ReactNode;
@@ -10,7 +10,7 @@ export default function Header({
 
     return (
         <header
-            className = "header"
+            className = 'header'
         >
             { children }
         </header>
