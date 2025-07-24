@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 
 import { SESSIONS } from '../dummy-sessions.ts';
+import Button from '../components/Button.tsx';
+import { useCallback } from 'react';
 
 export default function SessionPage() {
     const params = useParams<{ id: string }>();
@@ -16,6 +18,9 @@ export default function SessionPage() {
         );
     }
 
+    const handleSessionBooking = useCallback(() => {
+      
+    }, [])
 
     return (
         <main id='session-page'>
@@ -35,6 +40,11 @@ export default function SessionPage() {
                             }) }
                         </time>
                         <p>
+                            <Button
+                                onClick = { handleSessionBooking }
+                            >
+                                Book session
+                            </Button>
                             { /* Todo: Add button that opens "Book Session" dialog / modal */ }
                         </p>
                     </div>

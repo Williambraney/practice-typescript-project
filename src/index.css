@@ -164,6 +164,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #ccb2f6;
 }
 
 #main-header h1 {

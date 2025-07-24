@@ -2,8 +2,17 @@ import { Outlet } from 'react-router-dom';
 import Header from '../components/Header';
 import HeaderLink from '../components/HeaderLink';
 import Button from '../components/Button';
+import Modal from '../components/Modal';
+import { useCallback, useState } from 'react';
 
 export default function Root() {
+
+    const [ open, setOpen ] = useState<boolean>( false );
+
+    const handleClick = useCallback(() => {
+        setOpen(!open);
+    }, [ open ]);
+
     return (
         <>
             <Header>
@@ -23,12 +32,20 @@ export default function Root() {
                   Browse sessions
                 </HeaderLink>
                 <Button
-                    onClick={ () => alert('You clicked the button!') }
+                    onClick={ handleClick }
                 >
                   Upcoming sessions
                 </Button>
             </Header>
             <Outlet />
+            <Modal
+                open = { open }
+                onClose = { handleClick }
+            >
+                <h2>
+                    All sessions
+                </h2>
+            </Modal> 
         </>
     );
 }
