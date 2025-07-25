@@ -1,22 +1,23 @@
-import { ChangeEvent } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 
 type InputProps = {
     placeholder: string;
     id: string;
+
     // onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+} & ComponentPropsWithoutRef<'input'>;
 
 export default function TextField({
     id,
-    placeholder
+    placeholder,
+    ...props
 }: InputProps){
 
     return (
         <input 
-            className = 'control'
             id = { id }
-            type = 'text'
             placeholder = { placeholder }
+            { ...props }
         />
     )
 };

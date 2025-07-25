@@ -5,7 +5,6 @@ import { SESSIONS } from '../dummy-sessions.ts';
 import Button from '../components/Button.tsx';
 import { useCallback, useState } from 'react';
 import { addSession } from '../store/sessionSlice.ts';
-import Modal from '../components/Modal.tsx';
 import BookSessionModal from '../components/BookSessionModal.tsx';
 
 export default function SessionPage() {
@@ -27,8 +26,6 @@ export default function SessionPage() {
         console.log('loadedSession')
       
     }, [ dispatch, loadedSession ]);
-
-    console.log(useSessionSelector(state => state.session));
 
     if (!loadedSession) {
         return (
@@ -69,6 +66,7 @@ export default function SessionPage() {
             <BookSessionModal
                 onClose = { handleOpen }
                 open = { open }
+                loadedSession = { loadedSession }
             />
         </main>
     );

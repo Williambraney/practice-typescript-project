@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 type HeaderLinkProps = {
     href: string;
-    active: boolean;
     children: ReactNode;
 }
 
