@@ -4,6 +4,7 @@ import HeaderLink from '../components/HeaderLink';
 import Button from '../components/Button';
 import Modal from '../components/Modal';
 import { useCallback, useState } from 'react';
+import BookedSessionsModal from '../components/BookedSessionsModal';
 
 export default function Root() {
 
@@ -38,14 +39,10 @@ export default function Root() {
                 </Button>
             </Header>
             <Outlet />
-            <Modal
+            <BookedSessionsModal
                 open = { open }
-                onClose = { handleClick }
-            >
-                <h2>
-                    All sessions
-                </h2>
-            </Modal> 
+                // onClose = { handleClick }
+            />
         </>
     );
 }

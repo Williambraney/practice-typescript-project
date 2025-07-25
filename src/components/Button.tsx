@@ -26,7 +26,6 @@ export default function Button(props: ButtonSubmitProps | ButtonProps) {
                 type='submit'
             >
                 { children }
-                
             </button>
         );
     }

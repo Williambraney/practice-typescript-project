@@ -6,6 +6,7 @@ import Form from './Form';
 import Button from './Button';
 import { useSessionDispatch } from '../store/hooks';
 import { addSession } from '../store/sessionSlice';
+import SubHeader from './SubHeader';
 
 type BookSessionModalProps = {
     open: boolean;
@@ -58,9 +59,9 @@ export default function BookSessionModal({
             open = { open }
             // onClose = { onClose }
         >
-            <Header>
+            <SubHeader>
                 Book session
-            </Header>
+            </SubHeader>
             <Form
                 onSubmit = { handleSubmit }
             >
@@ -86,14 +87,18 @@ export default function BookSessionModal({
                     id = 'email'
                     name = 'email'
                 />
-                { /* <Button
-                    onClick = { onClose }
+                <div
+                    className = 'actions'
                 >
+                    <Button
+                        onClick = { onClose }
+                    >
                     Cancel
-                </Button> */ }
-                <Button>
+                    </Button>
+                    <Button>
                     Book session
-                </Button>
+                    </Button>
+                </div>
             </Form>
         </Modal>
     );
