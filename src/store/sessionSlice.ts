@@ -1,9 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type Session = {
+export type Session = {
     id: string;
     title: string;
     summary: string;
+    description: string;
+    duration: number;
+    date: string;
+    image: string;
 }
 
 type SessionState = {
@@ -18,6 +22,22 @@ export const sessionSlice = createSlice({
     name : 'session',
     initialState,
     reducers : {
-
+        addSession(
+            state: SessionState,
+            action: PayloadAction<Session>
+        ){
+            state.sessions.push(action.payload);
+        },
+        removeSession(
+            state: SessionState,
+            action: PayloadAction<string>
+        ){
+            state.sessions = state.sessions.filter(
+                session => session.id !== action.payload
+            );
+        }
     }
+
 })
+
+export const { addSession, removeSession } = sessionSlice.actions;

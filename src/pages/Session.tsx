@@ -1,14 +1,34 @@
 import { useParams } from 'react-router-dom';
+import { useSessionDispatch, useSessionSelector } from '../store/hooks.ts';
 
 import { SESSIONS } from '../dummy-sessions.ts';
 import Button from '../components/Button.tsx';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import { addSession } from '../store/sessionSlice.ts';
+import Modal from '../components/Modal.tsx';
+import BookSessionModal from '../components/BookSessionModal.tsx';
 
 export default function SessionPage() {
     const params = useParams<{ id: string }>();
 
+    const [ open, setOpen ] = useState<boolean>( false );
+
+    const dispatch = useSessionDispatch();
+
     const sessionId = params.id;
     const loadedSession = SESSIONS.find((session) => session.id === sessionId);
+
+    const handleOpen = useCallback(() => setOpen( !open ), [ open ]);
+
+    const handleAddSession = useCallback(() => {
+
+        dispatch( addSession( loadedSession ) );
+
+        console.log('loadedSession')
+      
+    }, [ dispatch, loadedSession ]);
+
+    console.log(useSessionSelector(state => state.session));
 
     if (!loadedSession) {
         return (
@@ -17,10 +37,6 @@ export default function SessionPage() {
             </main>
         );
     }
-
-    const handleSessionBooking = useCallback(() => {
-      
-    }, [])
 
     return (
         <main id='session-page'>
@@ -41,16 +57,19 @@ export default function SessionPage() {
                         </time>
                         <p>
                             <Button
-                                onClick = { handleSessionBooking }
+                                onClick = { handleOpen }
                             >
                                 Book session
                             </Button>
-                            { /* Todo: Add button that opens "Book Session" dialog / modal */ }
                         </p>
                     </div>
                 </header>
                 <p id='content'>{ loadedSession.description }</p>
             </article>
+            <BookSessionModal
+                onClose = { handleOpen }
+                open = { open }
+            />
         </main>
     );
 }
