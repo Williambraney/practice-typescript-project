@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
+import { NavLink } from 'react-router-dom';
 
 type HeaderLinkProps = {
     href: string;
+    active: boolean;
     children: ReactNode;
 }
 
@@ -11,11 +13,11 @@ export default function HeaderLink({
 }: HeaderLinkProps ){
 
     return (
-        <a 
-            href = { href } 
-            className='header-link'
+        <NavLink
+            to = { href } 
+            className={ ({ isActive }) => isActive ? 'header-link-active' : 'header-link' }
         >
             { children }
-        </a>
+        </NavLink>
     );
 }

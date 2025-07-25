@@ -129,6 +129,15 @@ ul {
   margin-right : 1.5rem;
 }
 
+.header-link-active {
+    color: #c6a8f5;
+  text-decoration: none;
+  font-size: 1.25rem;
+  text-wrap: nowrap;
+  margin-right : 1.5rem;
+  border-bottom: 2px solid #c6a8f5;
+}
+
 .header-link:hover,
 .header-link:active {
   color: #b68ef7;

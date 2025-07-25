@@ -30,7 +30,10 @@ export default function SessionsListItem({
                     >
                         { session.summary }
                     </div>
-                    <Link  to = { `/sessions/${session.id}` } className='button'>
+                    <Link 
+                        to = { `/sessions/${session.id}` } 
+                        className='button'
+                    >
                         Learn more
                     </Link>
                 </div>
