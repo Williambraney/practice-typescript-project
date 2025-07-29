@@ -4,7 +4,7 @@ import HeaderLink from '../components/HeaderLink';
 import Button from '../components/Button';
 import Modal from '../components/Modal';
 import { useCallback, useState } from 'react';
-import BookedSessionsModal from '../components/BookedSessionsModal';
+import BookedSessionModal from '../components/BookedSessionModal';
 
 export default function Root() {
 
@@ -39,7 +39,7 @@ export default function Root() {
                 </Button>
             </Header>
             <Outlet />
-            <BookedSessionsModal
+            <BookedSessionModal
                 open = { open }
                 // onClose = { handleClick }
             />

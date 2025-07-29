@@ -1,4 +1,4 @@
-import SessionsListItem from './SessionsListItem';
+import SessionListItem from './SessionListItem';
 
 export type Session = {
     id: string;
@@ -14,7 +14,7 @@ type ListProps = {
     sessions : Session[]
 };
 
-export default function SessionsList({ 
+export default function SessionList({ 
     sessions
 }: ListProps ) {
 
@@ -26,7 +26,7 @@ export default function SessionsList({
             {
                 sessions.map( session => {
                     return (
-                        <SessionsListItem 
+                        <SessionListItem 
                             session = { session }
                             key = { session.id }
                         />

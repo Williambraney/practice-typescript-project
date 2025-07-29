@@ -1,4 +1,4 @@
-import SessionsList from '../components/SessionsList.tsx';
+import SessionsList from '../components/SessionList.tsx';
 import { SESSIONS } from '../dummy-sessions.ts'; // normally, we would probably load that from a server
 
 export default function SessionsPage() {

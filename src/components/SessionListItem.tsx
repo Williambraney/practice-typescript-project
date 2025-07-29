@@ -1,11 +1,11 @@
-import { Session } from './SessionsList';
+import { Session } from './SessionList';
 import { Link } from 'react-router-dom';
 
 type ListItemProps = {
     session: Session
 };
 
-export default function SessionsListItem({
+export default function SessionListItem({
     session
 }: ListItemProps ){
 
